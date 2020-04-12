@@ -1,0 +1,17 @@
+<div>
+    <form method="post" action="/update">
+        <input type="password" name="old_password" placeholder="이전 비밀번호"/>
+        <br/>
+        <input type="password"name="new_password" placeholder="새 비밀번호"/>
+        <br/>
+        <input type="password" name="new_re" placeholder="새 비밀번호 확인"/>
+        <input type="submit"/>
+    </form>
+    {% with messages =  get_flashed_messages() %}
+    {% for message in messages %}
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    {% endfor %}
+    {% endwith %}
+</div>

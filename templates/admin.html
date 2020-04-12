@@ -1,0 +1,22 @@
+<div>
+    {% if current_user.id !=  admin_n %}
+        <form method="POST" action="{{url_for('admin')}}">
+            <input type="name" name="email" placeholder="아이디"/>
+            <input type="password" name="password" placeholder="비밀번호"/>
+            <input type="submit"/>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+    {% endif %}
+
+    {% if current_user.id == admin_n %}
+        {% for user in users %}
+            {% if user.email != 'wlisp0059' %}
+            <a href="/admin/{{user.id}}">{{user.name}}</a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>

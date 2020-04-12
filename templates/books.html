@@ -1,0 +1,14 @@
+<div>
+    <form method="post" action="/books">
+        <input type="title" name="title" placeholder="title"/>
+        <input type="submit" value="regist"/>
+    </form>
+</div>
+<div>
+    {% for book in books %}
+        <div>
+            {{book.title}}
+            <br/>
+        </div>
+    {% endfor %}
+</div>

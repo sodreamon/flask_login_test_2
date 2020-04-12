@@ -1,0 +1,24 @@
+<div>
+    {{user.name}}<br/>
+</div>
+<br/>
+<div>
+    <form method="post" action="{{url_for('admin_user', user=user.id)}}">
+    {% for book in user_books %}
+        <input type="checkbox" name="del" value="{{ book.id }}" />{{book.title}}
+        <br/>
+    {% endfor %}
+        <input type="submit"/>
+    </form>
+</div>
+<br/>
+<br/>
+<div>
+    <form method="post" action="/admin/{{user.id}}">
+    {% for book in books %}
+        <input type="checkbox" name="book" value="{{ book.id }}">{{book.title}}
+        <br/>
+    {% endfor %}
+        <input type="submit">
+    </form>
+</div>
